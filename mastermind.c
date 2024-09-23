@@ -14,6 +14,11 @@ void run_game() {
     printf("The code has been generated\n");
 
     char userCode[4];
+
+    printf("Enter your code: ");
+    scanf("%s", &userCode);
+
+    printf("Your code was %s", userCode);
 }
 
 int main() {
