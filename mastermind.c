@@ -18,7 +18,14 @@ void run_game() {
     printf("Enter your code: ");
     scanf("%s", &userCode);
 
-    printf("Your code was %s", userCode);
+    for (int i = 0; userCode[i] != '\0'; i++) {
+        char digit = userCode[i];
+        printf("%lu\n", sizeof(digit));
+    }
+
+    if (1 == 1) {
+        printf("Yeah buddy!");
+    }
 }
 
 int main() {
