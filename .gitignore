@@ -1,0 +1,23 @@
+# Ignore object files
+*.o
+
+# Ignore compiled binary files
+*.out
+*.exe
+
+# Ignore debug files
+*.d
+
+# Ignore any core dumps
+core
+
+# Ignore dependency files
+*.d
+
+# Ignore generated files by build systems (e.g., Makefiles)
+*.a
+*.so
+
+# Ignore any temporary files created by text editors or IDEs
+*.swp
+*~
