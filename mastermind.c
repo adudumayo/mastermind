@@ -20,12 +20,13 @@ void run_game() {
 
     for (int i = 0; userCode[i] != '\0'; i++) {
         char digit = userCode[i];
-        printf("%lu\n", sizeof(digit));
+        if (digit == digits[i]) {
+            printf("Yeah Buddy\n");
+        } else {
+            printf("Not quite!\n");
+        }
     }
 
-    if (1 == 1) {
-        printf("Yeah buddy!");
-    }
 }
 
 int main() {
