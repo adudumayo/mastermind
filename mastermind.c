@@ -4,8 +4,8 @@
 
 void run_game() {
     int masterCode[4];
-    char userCode[4];
-    int userDigits[4];
+    char playerCode[4];
+    int playerDigits[4];
     srand(time(0));
     
     for (int i = 0; i <4; i++) {
@@ -17,17 +17,17 @@ void run_game() {
     printf("The code has been generated\n");
 
     printf("Enter your code: ");
-    scanf("%s", &userCode);
+    scanf("%4s", &playerCode);
 
     for (int i = 0; i < 4; i++) {
-        userDigits[i] = userCode[i] - '0';
+        playerDigits[i] = playerCode[i] - '0';
+        if (playerDigits[i] == masterCode[i]) {
+            printf("Correct\n");
+        } else {
+            printf("Incorrect\n");
+        }
     }
-
-    printf("Checing the conversion\n");
-
-    for (int i = 0; i < 4; i++) {
-        printf("The number is %d\n", userDigits[i]);
-    }
+    
 }
 
 int main() {
