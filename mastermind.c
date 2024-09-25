@@ -3,7 +3,7 @@
 #include <time.h>
 
 void run_game() {
-    int masterCode[4];
+    static int masterCode[4];
     char playerCode[4];
     int playerDigits[4];
     int correctDigits = 0;
@@ -13,7 +13,6 @@ void run_game() {
     for (int i = 0; i <4; i++) {
         int randomNumber = (rand() % 8) + 1;
         masterCode[i] = randomNumber;
-        //masterCode[i] = i;
     }
 
     printf("The code is ");
