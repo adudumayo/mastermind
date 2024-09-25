@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 void run_game() {
     static int masterCode[4];
@@ -9,12 +10,28 @@ void run_game() {
     int correctDigits = 0;
     int incorrectDigits = 0;
     srand(time(0));
-    
-    for (int i = 0; i <4; i++) {
-        int randomNumber = (rand() % 8) + 1;
-        masterCode[i] = randomNumber;
-    }
+    int idx = 0;
 
+    while (true) {
+        int randomNumber = (rand() % 8) + 1;
+        printf("Found %d\n", randomNumber);
+        printf("Master says %d\n", masterCode[idx]);
+
+        if (randomNumber == masterCode[idx]) {
+            masterCode[idx] = randomNumber;
+            printf("Duplicate found");
+            break;
+        }
+
+        masterCode[idx] = randomNumber;
+        idx++;
+        printf("idx is %d\n", idx);
+        
+        if (idx == 4) {
+            break;
+        }
+    }
+    
     printf("The code is ");
     for (int i = 0; i < 4; i++) {
         printf("%d", masterCode[i]);
