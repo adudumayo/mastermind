@@ -27,7 +27,6 @@ void run_game() {
 
     for (int i = 0; i < 4; i++) {
         playerDigits[i] = playerCode[i] - '0';
-        printf("Comparing %d to %d\n", playerDigits[i], masterCode[i]);
         if (playerDigits[i] == masterCode[i]) {
             printf("Correct\n");
             correctDigits++;
