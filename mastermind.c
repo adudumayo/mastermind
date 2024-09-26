@@ -15,17 +15,9 @@ void run_game() {
     while (true) {
         int randomNumber = (rand() % 8) + 1;
         printf("Found %d\n", randomNumber);
-        printf("Master says %d\n", masterCode[idx]);
-
-        if (randomNumber == masterCode[idx]) {
-            masterCode[idx] = randomNumber;
-            printf("Duplicate found");
-            break;
-        }
 
         masterCode[idx] = randomNumber;
         idx++;
-        printf("idx is %d\n", idx);
         
         if (idx == 4) {
             break;
