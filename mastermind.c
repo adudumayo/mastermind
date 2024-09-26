@@ -13,25 +13,21 @@ void run_game() {
 
     // insert the first random master digit
     masterCode[0] = (rand() % 8) + 1;
-    printf("Found %d\n", masterCode[0]);
     
     int idx = 1;
 
     while (true) {
         bool duplicateFound = false;
         int randomNumber = (rand() % 8) + 1;
-        printf("Found %d\n", randomNumber);
 
         for (int j = 0; j < idx; j++) {
             if (randomNumber == masterCode[j]) {
-                printf("Duplicate found\n");
                 duplicateFound = true;
                 break;
             }
         }
 
         if (duplicateFound) {
-            printf("Skipping once\n");
             continue;
         }
 
