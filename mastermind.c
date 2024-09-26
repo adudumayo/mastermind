@@ -10,7 +10,12 @@ void run_game() {
     int correctDigits = 0;
     int incorrectDigits = 0;
     srand(time(0));
-    int idx = 0;
+
+    // insert the first random master digit
+    masterCode[0] = (rand() % 8) + 1;
+    printf("Found %d\n", masterCode[0]);
+    
+    int idx = 1;
 
     while (true) {
         int randomNumber = (rand() % 8) + 1;
