@@ -7,8 +7,8 @@ void run_game() {
     static int masterCode[4];
     char playerCode[4];
     int playerDigits[4];
-    int correctDigits = 0;
-    int incorrectDigits = 0;
+    int placed = 0;
+    int unplaced = 0;
     srand(time(0));
 
     // insert the first random master digit
@@ -52,17 +52,14 @@ void run_game() {
     for (int i = 0; i < 4; i++) {
         playerDigits[i] = playerCode[i] - '0';
         if (playerDigits[i] == masterCode[i]) {
-            printf("Correct\n");
-            correctDigits++;
+            placed++;
         } else {
-            printf("Incorrect\n");
-            incorrectDigits++;
+            unplaced++;
         }
     }
 
-    printf("Number of correct digits is %d\n", correctDigits);
-    printf("Number of incorrect digits is %d\n", incorrectDigits);
-    
+    printf("Correctly placed: %d\n", placed);
+    printf("Incorrectly placed: %d\n", unplaced);
 }
 
 int main() {
