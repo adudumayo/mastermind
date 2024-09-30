@@ -9,7 +9,7 @@ void run_game() {
     int playerDigits[4];
     int placed = 0;
     int unplaced = 0;
-    //srand(time(0));
+    srand(time(0));
 
     // insert the first random master digit
     masterCode[0] = (rand() % 8) + 1;
