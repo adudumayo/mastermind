@@ -9,12 +9,9 @@
 	.string	"Enter your code: "
 .LC3:
 	.string	"%4s"
-	.align 8
 .LC4:
-	.string	"It is not in the correct place"
-.LC5:
 	.string	"Correctly placed: %d\n"
-.LC6:
+.LC5:
 	.string	"Incorrectly placed: %d\n"
 	.text
 	.globl	run_game
@@ -30,6 +27,10 @@ run_game:
 	subq	$64, %rsp
 	movl	$0, -4(%rbp)
 	movl	$0, -8(%rbp)
+	movl	$0, %edi
+	call	time@PLT
+	movl	%eax, %edi
+	call	srand@PLT
 	call	rand@PLT
 	movl	%eax, %edx
 	movl	%edx, %eax
@@ -161,9 +162,6 @@ run_game:
 	movl	(%rcx,%rax), %eax
 	cmpl	%eax, %edx
 	jne	.L16
-	leaq	.LC4(%rip), %rax
-	movq	%rax, %rdi
-	call	puts@PLT
 	addl	$1, -8(%rbp)
 .L16:
 	addl	$1, -32(%rbp)
@@ -177,13 +175,13 @@ run_game:
 	jle	.L18
 	movl	-4(%rbp), %eax
 	movl	%eax, %esi
-	leaq	.LC5(%rip), %rax
+	leaq	.LC4(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	movl	-8(%rbp), %eax
 	movl	%eax, %esi
-	leaq	.LC6(%rip), %rax
+	leaq	.LC5(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
