@@ -46,24 +46,42 @@ void run_game() {
 
     printf("\n");
 
-    printf("Enter your code: ");
-    scanf("%4s", &playerCode);
+    int lives = 12;
 
-    for (int i = 0; i < 4; i++) {
-        playerDigits[i] = playerCode[i] - '0';
-        if (playerDigits[i] == masterCode[i]) {
-            placed++;
-        } else {
-            for (int j = 0; j < 4; j++) {
-                if (playerDigits[i] == masterCode[j]) {
-                    unplaced++;
+    while (1) {
+        printf("You have %d lives left\n", lives);
+
+        printf("Enter your code: ");
+        scanf("%4s", &playerCode);
+
+        for (int i = 0; i < 4; i++) {
+            playerDigits[i] = playerCode[i] - '0';
+            if (playerDigits[i] == masterCode[i]) {
+                placed++;
+            } else {
+                for (int j = 0; j < 4; j++) {
+                    if (playerDigits[i] == masterCode[j]) {
+                        unplaced++;
+                    }
                 }
             }
         }
-    }
 
-    printf("Correctly placed: %d\n", placed);
-    printf("Incorrectly placed: %d\n", unplaced);
+        printf("Correctly placed: %d\n", placed);
+        printf("Incorrectly placed: %d\n", unplaced);
+
+        if (lives == 0) {
+            printf("Game over!!\n");
+            break;
+        } else if (placed == 4) {
+            printf("You Won!!\n");
+            break;
+        }
+
+        unplaced = 0;
+        placed = 0;
+        lives--;
+    }
 }
 
 int main() {
