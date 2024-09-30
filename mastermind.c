@@ -56,7 +56,6 @@ void run_game() {
         } else {
             for (int j = 0; j < 4; j++) {
                 if (playerDigits[i] == masterCode[j]) {
-                    printf("It is not in the correct place\n");
                     unplaced++;
                 }
             }
